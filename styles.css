@@ -1,0 +1,85 @@
+body {
+    margin: 0 0 50px 50px;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 80px 1fr;
+    grid-gap: 50px;
+    grid-template-areas:
+        "header header header header"
+        "video fade bounce rotate";
+}
+
+.video {
+    grid-area: video;
+    background-color: blue;
+    box-shadow: 5px 5px hotpink, 6px 6px hotpink, 7px 7px hotpink;
+    transform: translateX(-3px);
+}
+
+.video:hover {
+    transform: scale(1.3);
+    transition: transform 1s;
+}
+
+
+.fade {
+    grid-area: fade;
+    opacity: .5;
+    transition: opacity 1s;
+}
+
+.fade:hover {
+    grid-area: fade;
+    background-color: lavender;
+    opacity: 1;
+    box-shadow: 5px 5px lavender, 6px 6px lavender, 7px 7px lavender;
+}
+
+
+.bounce {
+    grid-area: bounce;
+    animation: bounce-up-down 1s linear alternate infinite;
+}
+
+@keyframes bounce-up-down {
+    0% {
+        transform: translateY(60px);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+
+#eevee {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+}
+
+.rotate {
+    grid-area: rotate;
+    background-color: lavender;
+    height: 170px;
+    width: 170px;
+}
+
+p {
+    opacity: 0;
+    text-align: center;
+}
+
+.rotate:hover {
+    transform: rotateZ(90deg);
+    background-color: lavender;
+    transition: transform 1s;
+}
+
+.rotate:hover p {
+    display: block;
+    opacity: 1;
+    transition: opacity 1s;
+}
